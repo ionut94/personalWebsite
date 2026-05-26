@@ -423,31 +423,40 @@ em { font-style: italic; font-family: var(--display); font-weight: 400; }
    BEAUTY SHOT — full-bleed editorial banner
    ========================================================= */
 .beauty-shot {
-  margin: 0;
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
+  max-width: var(--maxw);
+  margin: clamp(2rem, 6vh, 5rem) auto 0;
+  padding: 0 var(--gutter);
 }
 .beauty-shot img {
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 21 / 9;
-  max-height: 70vh;
+  aspect-ratio: 16 / 9;
+  max-height: 65vh;
   object-fit: cover;
-  object-position: center;
+  object-position: center bottom;
+  -webkit-mask-image: linear-gradient(to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.6) 4%,
+    #000 12%,
+    #000 88%,
+    rgba(0, 0, 0, 0.6) 96%,
+    transparent 100%);
+          mask-image: linear-gradient(to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.6) 4%,
+    #000 12%,
+    #000 88%,
+    rgba(0, 0, 0, 0.6) 96%,
+    transparent 100%);
 }
 .beauty-shot figcaption {
-  max-width: var(--maxw);
-  margin: 1rem auto 0;
-  padding: 0 var(--gutter);
+  margin-top: 1.25rem;
   font-family: var(--mono);
   font-size: .8rem;
   letter-spacing: 0.04em;
   color: var(--muted);
+  text-align: center;
 }
 
 /* =========================================================
